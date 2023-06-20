@@ -13,12 +13,19 @@ class Container extends React.Component {
     this.state = {
       mode: "dark"
     };
+    // function needs to be bind to the correct context
+    this.handleLightMode = this.handleLightMode.bind(this);
+    this.handleDarkMode = this.handleDarkMode.bind(this);
   }
   handleLightMode() {
     // Change 'mode' on the component's state to 'light'
-  }
+   this.setState({
+    mode: "light"
+    });}
   handleDarkMode() {
     // Change 'mode' on the component's state to 'dark'
+    this.setState({ mode: "dark" });
+
   }
   render() {
     const { mode } = this.state;
